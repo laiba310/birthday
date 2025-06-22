@@ -54,7 +54,7 @@ export default function Home() {
           onClick={goToSurprise}
           className="mt-8 px-6 py-3 bg-white text-pink-600 font-semibold rounded-xl hover:bg-pink-100 transition-all shadow-md"
         >
-          Open Your Surprise 💌
+          tap 💌
         </button>
       </div>
     </main>
