@@ -1,18 +1,27 @@
-'use client'
+'use client';
 
-import { useRouter } from 'next/navigation'
-import Image from 'next/image'
-import { Pacifico, Poppins } from 'next/font/google'
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { Pacifico, Poppins } from 'next/font/google';
 
-const pacifico = Pacifico({ subsets: ['latin'], weight: '400', variable: '--font-pacifico' })
-const poppins = Poppins({ subsets: ['latin'], weight: ['400', '600'], variable: '--font-poppins' })
+const pacifico = Pacifico({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-pacifico',
+});
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  variable: '--font-poppins',
+});
 
 export default function Home() {
-  const router = useRouter()
+  const router = useRouter();
 
   const goToSurprise = () => {
-    router.push('/surprise')
-  }
+    router.push('/surprise');
+  };
 
   return (
     <main className="bg-[#fff1e6] text-gray-800 min-h-screen flex items-center justify-center px-4 py-12">
@@ -38,7 +47,7 @@ export default function Home() {
         </h1>
 
         <p className={`text-lg md:text-xl font-normal ${poppins.className}`}>
-          I’ve hidden some special memories just for you…<br className="hidden sm:block" /> tap below to find them 💖
+          I&rsquo;ve hidden some special memories just for you…<br className="hidden sm:block" /> tap below to find them 💖
         </p>
 
         <button
@@ -49,5 +58,5 @@ export default function Home() {
         </button>
       </div>
     </main>
-  )
+  );
 }

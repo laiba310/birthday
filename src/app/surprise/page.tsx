@@ -1,19 +1,19 @@
-'use client'
+'use client';
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
-const pics = Array.from({ length: 14 }, (_, i) => `/pic${i + 1}.jpg`)
+const pics = Array.from({ length: 14 }, (_, i) => `/pic${i + 1}.jpg`);
 
 const rotations = [
   '-rotate-3', 'rotate-2', '-rotate-2', 'rotate-1',
   'rotate-3', '-rotate-1', 'rotate-2', '-rotate-3',
   'rotate-1', '-rotate-2', 'rotate-3', '-rotate-1',
   'rotate-2', 'rotate-1'
-]
+];
 
 export default function Surprise() {
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     import('canvas-confetti').then((confetti) => {
@@ -21,16 +21,17 @@ export default function Surprise() {
         particleCount: 150,
         spread: 100,
         origin: { y: 0.6 },
-      })
-    })
-  }, [])
+      });
+    });
+  }, []);
 
   const goToNextPage = () => {
-    router.push('/letter') // 👉 Change '/letter' to whatever your next route is
-  }
+    router.push('/letter'); // 🌟 Move to the letter page
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-100 via-white to-pink-200 py-12 px-4 overflow-hidden relative">
+      {/* Heading */}
       <h1 className="text-5xl font-pacifico text-pink-600 text-center mb-4 drop-shadow-md">
         💌 Our Memories
       </h1>
@@ -38,6 +39,7 @@ export default function Surprise() {
         Moments stitched with giggles, sealed with pinky promises 🌸
       </p>
 
+      {/* Gallery */}
       <div className="flex flex-wrap justify-center gap-5 max-w-6xl mx-auto relative z-10">
         {pics.map((src, i) => (
           <div
@@ -55,19 +57,18 @@ export default function Surprise() {
         ))}
       </div>
 
-      {/* 🎯 NEXT BUTTON */}
+      {/* ➡️ Next Button */}
       <div className="mt-12 flex justify-center">
         <button
           onClick={goToNextPage}
-          className="px-6 py-3 bg-pink-500 text-white font-semibold rounded-full shadow-lg hover:bg-pink-600 transition-all flex items-center gap-2"
+          className="px-6 py-3 bg-pink-500 text-white font-semibold rounded-full shadow-lg hover:bg-pink-600 transition-all flex items-center gap-2 animate-bounce"
         >
-          Next
-          <span className="animate-bounce text-xl">➡️</span>
+          Next <span className="text-xl">➡️</span>
         </button>
       </div>
 
-      {/* 🌟 Soft sparkle effect */}
+      {/* ✨ Sparkle Background */}
       <div className="absolute top-0 left-0 w-full h-full bg-[url('/sparkle.svg')] bg-repeat opacity-10 z-0 pointer-events-none" />
     </div>
-  )
+  );
 }
